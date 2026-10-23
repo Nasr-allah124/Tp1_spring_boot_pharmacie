@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Produits</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        table { border-collapse: collapse; }
+        th, td { border: 1px solid #999; padding: 6px 10px; }
+        th { background: #eee; }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="/produits">Produits</a> |
+    <a href="/categories">Catégories</a> |
+    <a href="/fournisseurs">Fournisseurs</a> |
+    <a href="/tags">Tags</a>
+</nav>
+<h1>Liste des produits</h1>
+<table>
+    <tr>
+        <th>ID</th><th>Nom</th><th>Prix</th><th>Code-barre</th><th>Expiration</th>
+        <th>Catégorie</th><th>Fournisseur</th><th>Fabricant</th><th>Tags</th>
+    </tr>
+    <tr th:each="p : ${produits}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.nom}"></td>
+        <td th:text="${p.prix}"></td>
+        <td th:text="${p.codeBarre}"></td>
+        <td th:text="${p.dateExpiration}"></td>
+        <td th:text="${p.categorie?.nom}"></td>
+        <td th:text="${p.fournisseur?.nom}"></td>
+        <td th:text="${p.detailProduit?.fabricant}"></td>
+        <td><span th:each="t : ${p.tags}" th:text="${t.libelle} + ' '"></span></td>
+    </tr>
+</table>
+</body>
+</html>

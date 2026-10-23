@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fournisseurs</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        table { border-collapse: collapse; }
+        th, td { border: 1px solid #999; padding: 6px 10px; }
+        th { background: #eee; }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="/produits">Produits</a> |
+    <a href="/categories">Catégories</a> |
+    <a href="/fournisseurs">Fournisseurs</a> |
+    <a href="/tags">Tags</a>
+</nav>
+<h1>Fournisseurs</h1>
+<table>
+    <tr><th>ID</th><th>Nom</th><th>Contact</th><th>Adresse</th></tr>
+    <tr th:each="f : ${fournisseurs}">
+        <td th:text="${f.id}"></td>
+        <td th:text="${f.nom}"></td>
+        <td th:text="${f.contact}"></td>
+        <td th:text="${f.adresse}"></td>
+    </tr>
+</table>
+</body>
+</html>

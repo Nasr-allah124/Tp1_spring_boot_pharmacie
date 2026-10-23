@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tags</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        table { border-collapse: collapse; }
+        th, td { border: 1px solid #999; padding: 6px 10px; }
+        th { background: #eee; }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="/produits">Produits</a> |
+    <a href="/categories">Catégories</a> |
+    <a href="/fournisseurs">Fournisseurs</a> |
+    <a href="/tags">Tags</a>
+</nav>
+<h1>Tags</h1>
+<table>
+    <tr><th>ID</th><th>Libellé</th></tr>
+    <tr th:each="t : ${tags}">
+        <td th:text="${t.id}"></td>
+        <td th:text="${t.libelle}"></td>
+    </tr>
+</table>
+</body>
+</html>
